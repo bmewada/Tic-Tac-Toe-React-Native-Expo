@@ -5,7 +5,6 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-na
 
 export default function App() {
   const [ticTacToe, setTicTacToe] = useState(Array(9).fill(null))
-  console.log("ticTacToe: ", ticTacToe);
   const [gamer, setGamer] = useState('X')
   const [winner, setWinner] = useState(null);
 
@@ -76,7 +75,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>
+      <Text onLongPress={() =>  setGamer(gamer === 'X' ? 'O' : 'X')} style={styles.heading}>
         Tic Tac Toe
       </Text>
       <Text style={[styles.winnerText, { color: winner === 'Draw' ? "red" : 'green' }]}> {winner}</Text>
